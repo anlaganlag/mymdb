@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'core',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,7 +78,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME':'mymdb',
-        'USER':'mydb',
+        'USER':'mymdb',
         'PASSWORD':'development',
         'HOST':'127.0.0.1',
         'PORT':'5432',

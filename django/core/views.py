@@ -1,12 +1,18 @@
 from django.views.generic import ListView,DetailView
-from core.models import Movie
+from core.models import Movie,Person
 
 class MovieDetail(DetailView):
-    model = Movie
+    queryset = (
+        Movie.objects
+            .all_with_related_persons())
 
 class MovieList(ListView):
     model = Movie
     paginate_by =5
+
+
+class PersonDetail(DetailView):
+    queryset = Person.objects.all_with_prefetch_movies()
 
 
 

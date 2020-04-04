@@ -9,13 +9,10 @@ class PersonManager(models.Manager):
 
 
 class Person(models.Model):
-    first_name = models.CharField(
-        max_length=140)
-    last_name = models.CharField(
-        max_length=140)
+    first_name = models.CharField( max_length=140)
+    last_name = models.CharField( max_length=140)
     born = models.DateField()
-    died = models.DateField(null=True,
-                            blank=True)
+    died = models.DateField(null=True, blank=True)
 
     objects = PersonManager()
 
@@ -40,10 +37,8 @@ class MovieManager(models.Manager):
 
     def all_with_related_persons(self):
         qs = self.get_queryset()
-        qs = qs.select_related(
-            'director')
-        qs = qs.prefetch_related(
-            'writers', 'actors')
+        qs = qs.select_related( 'director')
+        qs = qs.prefetch_related( 'writers', 'actors')
         return qs
 
 
